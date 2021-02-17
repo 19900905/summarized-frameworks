@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    sentinel:
+      transport:
+        dashboard: ${sentinel.dashboard}  # dashboard 地址
+      eager: true                         # 急切加载规则
+      datasource:
+        ds:                               # 限流规则配置
+          file:
+            file: classpath:flowrule.json # 限流规则目标文件路径
+            data-type: json               # 文件格式
+            rule-type: FLOW               # 规则类型

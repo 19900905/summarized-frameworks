@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+    <classPathEntry
+            location="C:/WorkBench/apache-maven-3.6.1/repository/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar"/>
+
+    <context id="context1" targetRuntime="MyBatis3">
+
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <property name="projectPath" value="C:/WorkBench/idea-projects/learn-in-action/common1-dao/"/>
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection connectionURL="jdbc:mysql://192.168.66.128:3306/integration"
+                        driverClass="com.mysql.jdbc.Driver" userId="root" password="123456"/>
+        <javaModelGenerator targetPackage="org.zxd.entity.usercenter"
+                            targetProject="C:/WorkBench/idea-projects/learn-in-action/common1-dao/src/main/java">
+            <!--  <property name="rootClass" value="BaseEntity"/>-->
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mapper.usercenter"
+                         targetProject="C:/WorkBench/idea-projects/learn-in-action/common1-dao/src/main/resources"/>
+
+        <javaClientGenerator targetPackage="org.zxd.dao.usercenter"
+                             targetProject="C:/WorkBench/idea-projects/learn-in-action/common1-dao/src/main/java"
+                             type="XMLMAPPER"/>
+
+
+        <table tableName="t_uc_user" domainObjectName="UcUser" enableDeleteByPrimaryKey="false"
+               enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+    </context>
+</generatorConfiguration>

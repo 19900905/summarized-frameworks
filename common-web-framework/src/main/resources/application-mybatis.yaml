@@ -1,0 +1,15 @@
+mybatis:
+  type-aliases-package: org.zxd.dao.entity        # 类型别名基础目录
+  mapper-locations: classpath:mapper/*/*.xml      # Mybatis 映射文件扫描路径
+  configuration:
+    use-generated-keys: true  # 使用自增主键
+    map-underscore-to-camel-case: true  # 下划线字段自动映射到驼峰属性
+    auto-mapping-behavior: full # 全部字段开启自动映射
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 输出 sql 语句，本地开发时打开
+
+#pagehelper分页插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql

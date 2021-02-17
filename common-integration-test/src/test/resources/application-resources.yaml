@@ -1,0 +1,13 @@
+mysql:
+  address: 192.168.66.129
+  port: 3306
+  database: integration
+  username: root
+  password: 123456
+
+redis:
+  address: 192.168.66.129
+  port: 6379
+
+sentinel:
+  dashboard: localhost:8718

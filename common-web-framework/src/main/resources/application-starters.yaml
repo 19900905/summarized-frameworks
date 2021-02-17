@@ -1,0 +1,21 @@
+common:
+  distributed:
+    lock:
+      enabled: false
+
+    cache:
+      enabled: false
+
+  unified:
+    response:
+      enabled: true
+
+  cache:
+    cacheConfigs:
+      - cacheName: user
+        initialCapacity: 16
+        maximumSize: 1024
+        expire: 3
+        timeUnit: SECONDS
+        expireType: EXPIRE_AFTER_ACCESS
+        allowNullValues: true

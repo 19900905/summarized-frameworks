@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    active: resources, starters, h2, mybatis, redis, sentinel
+  redis:
+    host: 192.168.66.129
+
+  main:
+    allow-bean-definition-overriding: true

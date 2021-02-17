@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zxd.dao.uc.UcUserMapper">
+    <cache size="256"/>
+    <resultMap id="ResultMap" type="org.zxd.dao.entity.usercenter.UcUser">
+        <!--@Table t_uc_user-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="user_id" jdbcType="VARCHAR" property="userId"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="salt" jdbcType="VARCHAR" property="salt"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="register_ip" jdbcType="INTEGER" property="registerIp"/>
+        <result column="register_time" jdbcType="TIMESTAMP" property="registerTime"/>
+        <result column="last_login_ip" jdbcType="INTEGER" property="lastLoginIp"/>
+        <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime"/>
+        <result column="login_times" jdbcType="INTEGER" property="loginTimes"/>
+        <result column="create_at" jdbcType="TIMESTAMP" property="createAt"/>
+        <result column="update_at" jdbcType="TIMESTAMP" property="updateAt"/>
+        <result column="deleted" jdbcType="INTEGER" property="deleted"/>
+        <result column="version" jdbcType="INTEGER" property="version"/>
+    </resultMap>
+
+    <sql id="AllColumns">
+            user_id,
+            username,
+            salt,
+            password,
+            status,
+            register_ip,
+            register_time,
+            last_login_ip,
+            last_login_time,
+            login_times,
+            create_at,
+            update_at,
+            deleted,
+            version
+    </sql>
+
+    <insert id="insert">
+        insert into t_uc_user (
+        <include refid="AllColumns"/>
+        )
+        values
+        (
+        #{userId},#{username},#{salt},#{password},#{status},#{registerIp},
+        #{registerTime},#{lastLoginIp}, #{lastLoginTime},#{loginTimes},#{createAt},#{updateAt},
+        #{deleted},#{version}
+        )
+    </insert>
+
+    <select id="findByUsername" resultMap="ResultMap">
+        select
+        <include refid="AllColumns"/>
+        from t_uc_user
+        where username = #{username}
+        limit 1
+    </select>
+
+</mapper>
